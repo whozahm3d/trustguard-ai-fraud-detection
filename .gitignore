@@ -201,6 +201,15 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Dataset
+data/*.csv
+data/*.zip
+
+# Large files
+*.csv
+*.zip
+*.tar.gz
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
