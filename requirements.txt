@@ -8,5 +8,3 @@ notebook
 scipy
 tqdm
 joblib
-
-@70729823424597 yh requirements.txt wali file mei dal de
