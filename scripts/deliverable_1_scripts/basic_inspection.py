@@ -1,3 +1,5 @@
+# Perform initial dataset inspection including shape, column names, data types, and statistical summary to understand the dataset structure.
+
 def dataset_shape(df):
     """
     Display number of rows and columns
