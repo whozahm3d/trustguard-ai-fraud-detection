@@ -80,7 +80,7 @@ trustguard-ai-fraud-detection
 │   ├── raw
 │   │   └── (dataset not included — see dataset_link.txt)
 │   ├── processed
-│   │   └── processed_paysim.csv
+│   │   └── (dataset not included beacuse the file is very large — upload some of the rows and cokumns of the preprocess data)
 │   └── dataset_link.txt
 │
 ├── scripts
