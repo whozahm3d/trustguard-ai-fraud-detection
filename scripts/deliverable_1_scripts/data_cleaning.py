@@ -1,3 +1,5 @@
+# Check for missing values to ensure data quality before performing preprocessing and analysis.
+
 def remove_duplicates(df):
     """
     Remove duplicate rows
