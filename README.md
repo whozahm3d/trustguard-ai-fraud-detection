@@ -91,6 +91,7 @@ trustguard-ai-fraud-detection
 │   ├── preprocessing_pipeline.py
 │   ├── eda_analysis.py
 │   └── run_pipeline.py
+│   └── save_cleaned_dataset.py
 │
 ├── notebooks
 │   ├── deliverable1_pipeline.ipynb
@@ -98,25 +99,17 @@ trustguard-ai-fraud-detection
 │
 ├── images
 │   ├── transaction_volume_over_time.png
-│   ├── fraud_distribution
-│   │   └── fraud_distribution.png
-│   ├── transaction_types
-│   │   ├── transaction_types.png
-│   │   ├── fraud_vs_normal_transaction_amounts.png
-│   │   └── feature_importance.png
-│   ├── fraud_by_transaction_type
-│   │   └── fraud_by_transaction_type.png
-│   ├── transaction_amount_distribution
-│   │   └── transaction_amount_distribution.png
-│   └── correlation_heatmap
-│       └── correlation_heatmap.png
+│   ├── fraud_distribution.png
+│   ├── transaction_types.png
+│   ├── fraud_vs_normal_transaction_amounts.png
+│   ├── feature_importance.png
+│   ├── fraud_by_transaction_type.png
+│   ├── transaction_amount_distribution.png
+│   ├── correlation_heatmap.png
 │
 ├── reports
-│   ├── Fraud_Detection_Full_Report.pdf
-│   └── deliverable1.tex
-│
-└── docs
-    └── (architecture diagrams — future deliverables)
+│   ├── Fraud_Detection_Deliverable 1_Report.pdf
+│   └── Fraud_Detection_Deliverable 1_Report.doc
 ```
 
 ---
@@ -176,7 +169,7 @@ python scripts/eda_analysis.py
 
 ### Use the Notebooks
 
-Open the notebooks in Jupyter or Google Colab:
+Open the notebooks in Jupyter, Google Colab or vs code:
 
 ```bash
 jupyter notebook notebooks/deliverable1_pipeline.ipynb
@@ -220,15 +213,6 @@ The EDA uncovered the following key fraud patterns in the PaySim dataset:
 ### Feature Importance (Correlation with Fraud Label)
 ![Feature Importance](images/transaction_types/feature_importance.png)
 > `oldbalanceOrg` and `newbalanceOrig` are the strongest predictors — fraudulent transactions characteristically drain the originating account to zero (the **balance-drain signature**).
-
----
-
-## Future Work
-
-- **Deliverable 2 — Model Development:** Train and benchmark Logistic Regression, Random Forest, XGBoost, and LightGBM classifiers with SMOTE-based oversampling to handle class imbalance.
-- **Deliverable 3 — Explainable AI:** Integrate SHAP and LIME to generate per-prediction feature attribution explanations for fraud analysts.
-- **Deliverable 3 — RAG Policy Assistant:** Build a Retrieval-Augmented Generation system that retrieves compliance policies and AML regulations to provide context-aware, natural-language explanations for flagged transactions.
-- **Final Deliverable — Deployment:** Deploy the full system as a FastAPI backend with a Streamlit or React frontend for real-time fraud monitoring.
 
 ---
 
