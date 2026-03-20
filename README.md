@@ -1,225 +1,249 @@
-# Explainable AI-Driven Financial Fraud Detection with RAG Policy Assistant
+# TrustGuard AI: Explainable Fraud Detection for Digital Banking with RAG-Based Policy Assistance
 
-## Project Overview
-
-The rapid growth of digital banking and mobile payment services has significantly increased the risk of financial fraud. Traditional rule-based fraud detection systems often fail to detect complex fraud patterns hidden within large volumes of transaction data.
-
-This project aims to build an **AI-powered financial fraud detection system** that uses machine learning to identify suspicious financial transactions and integrates **Explainable AI (XAI)** to provide transparent reasoning behind predictions. In addition, a **Retrieval-Augmented Generation (RAG) policy assistant** will retrieve relevant banking regulations and fraud policies to explain why certain transactions are flagged.
-
-The system is designed as an **end-to-end AI pipeline**, covering data preprocessing, model training, fraud prediction, explainability, and policy-based explanations through a RAG framework.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![Pandas](https://img.shields.io/badge/Pandas-2.0-green) ![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-1.3-orange) ![Status](https://img.shields.io/badge/Status-Deliverable%201%20Complete-brightgreen)
 
 ---
 
-# Objectives
+## Description
 
-The primary objectives of this project are:
+Financial fraud is a growing threat in the digital banking era, costing institutions and individuals trillions of dollars each year. TrustGuard AI is an end-to-end AI-powered fraud detection system that uses machine learning to identify suspicious financial transactions and integrates **Explainable AI (XAI)** to provide transparent, interpretable reasoning behind every prediction. A **Retrieval-Augmented Generation (RAG) policy assistant** will further enhance the system by retrieving relevant banking regulations and fraud policies to explain why certain transactions are flagged — making TrustGuard AI both accurate and accountable.
 
-* Detect fraudulent financial transactions using machine learning
-* Improve interpretability of predictions using Explainable AI techniques
-* Integrate a RAG system to retrieve relevant fraud regulations and policy explanations
-* Build a scalable AI pipeline that can be extended to real banking systems
-* Develop a web-based interface for fraud monitoring and analysis
+This repository contains **Deliverable 1**, covering the complete data acquisition, preprocessing pipeline, and exploratory data analysis on the PaySim synthetic financial dataset.
 
 ---
 
-# Problem Statement
+## Problem Statement
 
-Financial institutions process millions of digital transactions daily. Identifying fraudulent activity within these transactions is challenging because fraud patterns evolve continuously and often resemble legitimate behavior.
+Financial institutions process millions of digital transactions daily. Identifying fraudulent activity is challenging because fraud patterns evolve continuously and often closely resemble legitimate behavior. Traditional rule-based systems struggle to detect new and sophisticated fraud strategies, frequently producing high false-positive rates that overwhelm fraud analysts.
 
-Traditional rule-based systems struggle to detect new fraud strategies and often produce high false-positive rates. Machine learning models can learn hidden behavioral patterns in transaction data and detect anomalies more effectively.
-
-This project develops an AI-based fraud detection framework capable of learning transaction patterns, identifying suspicious behavior, and providing transparent explanations for automated decisions.
+TrustGuard AI addresses this by developing a machine learning-based framework that learns hidden behavioral patterns in transaction data, detects anomalies with higher accuracy, and provides transparent, explainable decisions — meeting both operational and regulatory requirements.
 
 ---
 
-# Target Users
+## Objectives
 
-This system is designed for:
-
-* Financial institutions
-* Digital banking platforms
-* Fraud investigation teams
-* Regulatory compliance officers
-* FinTech startups building fraud detection systems
-
----
-
-# Dataset
-
-This project uses the **PaySim Synthetic Financial Dataset for Fraud Detection**.
-
-Dataset Source:
-Kaggle – Synthetic Financial Datasets for Fraud Detection (PaySim)
-
-The dataset simulates **mobile money transactions**, including:
-
-* Transfers
-* Cash withdrawals
-* Deposits
-* Payments
-* Fraudulent activities
-
-### Key Features
-
-* Transaction Type
-* Transaction Amount
-* Origin Account Balance
-* Destination Account Balance
-* Fraud Labels
-
-This dataset provides a realistic simulation of financial transaction behavior suitable for training fraud detection models.
+- **Data Preprocessing:** Load, inspect, clean, and prepare the PaySim dataset for analysis.
+- **Exploratory Data Analysis:** Visualize transaction patterns and uncover key fraud signals.
+- **Feature Engineering:** Encode categorical variables and scale numerical features for model readiness.
+- **Fraud Detection Model:** Train and evaluate machine learning classifiers to identify fraudulent transactions.
+- **Explainability:** Apply SHAP and LIME to make model predictions interpretable and transparent.
+- **RAG Policy Assistant:** Retrieve relevant fraud regulations and generate policy-grounded explanations.
+- **Web Interface:** Deploy a real-time fraud monitoring dashboard for analysts and institutions.
 
 ---
 
-# Project Architecture
+## Dataset
 
-The project follows a **data-centric AI pipeline**.
+This project uses the **PaySim Synthetic Financial Dataset for Fraud Detection**, available on Kaggle.
+
+> Dataset Link: [Kaggle — Synthetic Financial Datasets for Fraud Detection](https://www.kaggle.com/datasets/ealaxi/paysim1)
+
+PaySim simulates real-world mobile money transactions calibrated against private data from an African mobile payment service. It provides a realistic and privacy-preserving environment for training fraud detection models.
+
+| Property | Value |
+|---|---|
+| Total Transactions | 6,362,620 |
+| Total Features | 11 |
+| Fraudulent Transactions | 8,213 (0.13%) |
+| Fraud Transaction Types | TRANSFER, CASH_OUT only |
+| Missing Values | None |
+| Duplicate Records | None |
+
+**Key Features:**
+
+| Column | Description |
+|---|---|
+| `step` | Simulated time unit (1 step = 1 hour) |
+| `type` | Transaction type (CASH-IN, CASH-OUT, DEBIT, PAYMENT, TRANSFER) |
+| `amount` | Transaction amount in local currency |
+| `oldbalanceOrg` | Originating account balance before transaction |
+| `newbalanceOrig` | Originating account balance after transaction |
+| `oldbalanceDest` | Destination account balance before transaction |
+| `newbalanceDest` | Destination account balance after transaction |
+| `isFraud` | Target label: 1 = Fraudulent, 0 = Legitimate |
+
+> **Note:** The raw dataset is not included in this repository due to size. Download it from the link above and place it in `data/raw/`.
+
+---
+
+## Project Structure
 
 ```
-Raw Dataset
-     │
-     ▼
-Data Cleaning
-     │
-     ▼
-Feature Engineering
-     │
-     ▼
-Exploratory Data Analysis
-     │
-     ▼
-Fraud Detection Model
-     │
-     ▼
-Explainable AI Layer
-     │
-     ▼
-RAG Policy Assistant
-     │
-     ▼
-Web Interface
-```
-
----
-
-# Repository Structure
-
-```
-fraud-detection-ai-system
+trustguard-ai-fraud-detection
 │
 ├── README.md
+├── requirements.txt
 ├── .gitignore
+├── LICENSE
 │
 ├── data
+│   ├── raw
+│   │   └── (dataset not included — see dataset_link.txt)
+│   ├── processed
+│   │   └── processed_paysim.csv
 │   └── dataset_link.txt
 │
-├── data_scripts
-│   ├── load_data.py
+├── scripts
+│   ├── load_dataset.py
+│   ├── basic_inspection.py
 │   ├── data_cleaning.py
-│   ├── preprocessing.py
-│   └── eda.py
+│   ├── feature_engineering.py
+│   ├── preprocessing_pipeline.py
+│   ├── eda_analysis.py
+│   └── run_pipeline.py
 │
 ├── notebooks
-│   └── exploratory_analysis.ipynb
+│   ├── deliverable1_pipeline.ipynb
+│   └── exploratory_data_analysis.ipynb
+│
+├── images
+│   ├── transaction_volume_over_time.png
+│   ├── fraud_distribution
+│   │   └── fraud_distribution.png
+│   ├── transaction_types
+│   │   ├── transaction_types.png
+│   │   ├── fraud_vs_normal_transaction_amounts.png
+│   │   └── feature_importance.png
+│   ├── fraud_by_transaction_type
+│   │   └── fraud_by_transaction_type.png
+│   ├── transaction_amount_distribution
+│   │   └── transaction_amount_distribution.png
+│   └── correlation_heatmap
+│       └── correlation_heatmap.png
 │
 ├── reports
+│   ├── Fraud_Detection_Full_Report.pdf
 │   └── deliverable1.tex
 │
-└── images
-    └── eda_plots
+└── docs
+    └── (architecture diagrams — future deliverables)
 ```
 
 ---
 
-# Technologies Used
+## Installation
 
-* Python
-* Pandas
-* NumPy
-* Scikit-Learn
-* Matplotlib
-* Seaborn
-* PyTorch / TensorFlow (for advanced models)
-* FAISS / ChromaDB (for RAG retrieval)
-* FastAPI (backend)
-* Streamlit / React (frontend)
+### 1. Clone the Repository
 
----
+```bash
+git clone https://github.com/your-username/trustguard-ai-fraud-detection.git
+cd trustguard-ai-fraud-detection
+```
 
-# Deliverables
+### 2. Install Dependencies
 
-The project will be completed in multiple stages:
+```bash
+pip install -r requirements.txt
+```
 
-### Deliverable 1
+Or install manually:
 
-Problem Definition and Data Acquisition
-
-Includes:
-
-* Dataset collection
-* Data preprocessing
-* Exploratory Data Analysis
-
-### Deliverable 2
-
-Model Development
-
-Includes:
-
-* Feature engineering
-* Fraud detection models
-* Model evaluation
-
-### Deliverable 3
-
-Explainable AI + RAG Integration
-
-Includes:
-
-* Model explainability
-* Policy retrieval system
-* Fraud explanation interface
-
-### Final Deliverable
-
-Full AI System Deployment
-
-Includes:
-
-* Backend API
-* Web application
-* Real-time fraud detection interface
-
----
-
-# Setup Instructions
-
-### 1 Install Dependencies
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn
 ```
 
-### 2 Clone Repository
+### 3. Download the Dataset
 
-```bash
-git clone https://github.com/your-username/fraud-detection-ai-system.git
-cd fraud-detection-ai-system
+Download the PaySim dataset from [Kaggle](https://www.kaggle.com/datasets/ealaxi/paysim1) and place the CSV file in the `data/raw/` directory:
+
+```
+data/raw/PaySim - Synthetic Financial Dataset for Fraud Detection.csv
 ```
 
-### 3 Download Dataset
-Download the dataset from Kaggle and place it in the `https://www.kaggle.com/code/gpreda/synthetic-financial-datasets-data-exploration` directory.
+---
+
+## Usage
+
+### Run the Full Preprocessing Pipeline
+
+```bash
+python scripts/run_pipeline.py
+```
+
+This will execute all pipeline stages in sequence:
+1. Load the dataset
+2. Inspect shape, types, and statistics
+3. Remove duplicates and handle outliers
+4. Encode the `type` column using LabelEncoder
+5. Scale numerical features using StandardScaler
+6. Export the processed dataset to `data/processed/processed_paysim.csv`
+
+### Run EDA Only
+
+```bash
+python scripts/eda_analysis.py
+```
+
+### Use the Notebooks
+
+Open the notebooks in Jupyter or Google Colab:
+
+```bash
+jupyter notebook notebooks/deliverable1_pipeline.ipynb
+jupyter notebook notebooks/exploratory_data_analysis.ipynb
+```
 
 ---
 
-# Academic Integrity
+## Results — Exploratory Data Analysis
 
-This project is developed as part of an academic AI course. AI tools may be used for assistance, but all contributors must fully understand the implementation and be able to explain the system during evaluation.
+The EDA uncovered the following key fraud patterns in the PaySim dataset:
+
+### Transaction Volume Over Time
+![Transaction Volume Over Time](images/transaction_volume_over_time.png)
+> A strong diurnal cycle is visible — transaction volumes peak every ~24 steps. Sudden spikes outside this rhythm may signal abnormal batch activity.
+
+### Fraud vs. Legitimate Class Distribution
+![Fraud Distribution](images/fraud_distribution/fraud_distribution.png)
+> Only **0.13%** of transactions are fraudulent (8,213 of 6.36M). This severe imbalance means standard accuracy is a misleading metric — AUPRC and F1-score must be used.
+
+### Transaction Type Distribution
+![Transaction Types](images/transaction_types/transaction_types.png)
+> PAYMENT and CASH_OUT are the most frequent types. However, volume alone does not reflect fraud risk.
+
+### Fraud Concentration by Transaction Type
+![Fraud by Transaction Type](images/fraud_by_transaction_type/fraud_by_transaction_type.png)
+> **Fraud occurs exclusively in TRANSFER and CASH_OUT transactions.** This allows a pre-filter that eliminates ~55% of records from fraud modelling with zero loss in recall.
+
+### Transaction Amount Distribution
+![Transaction Amount Distribution](images/transaction_amount_distribution/transaction_amount_distribution.png)
+> Heavily right-skewed — most transactions are below 500K but a tail extends to ~92M. Feature scaling is essential.
+
+### Transaction Amount: Fraud vs. Legitimate
+![Fraud vs Normal Amounts](images/transaction_types/fraud_vs_normal_transaction_amounts.png)
+> Fraudulent transactions cluster at higher amounts with a broader spread, confirming large amounts as a key fraud signal.
+
+### Feature Correlation Matrix
+![Correlation Heatmap](images/correlation_heatmap/correlation_heatmap.png)
+> Balance features are strongly inter-correlated. `isFlaggedFraud` shows near-zero correlation with actual fraud — it must be excluded from model features.
+
+### Feature Importance (Correlation with Fraud Label)
+![Feature Importance](images/transaction_types/feature_importance.png)
+> `oldbalanceOrg` and `newbalanceOrig` are the strongest predictors — fraudulent transactions characteristically drain the originating account to zero (the **balance-drain signature**).
 
 ---
 
-# Contributors
-Add your group members here:
+## Future Work
 
-* Shahzeb Imran
-* Taha Nawaz
-* Ali Ahmad
+- **Deliverable 2 — Model Development:** Train and benchmark Logistic Regression, Random Forest, XGBoost, and LightGBM classifiers with SMOTE-based oversampling to handle class imbalance.
+- **Deliverable 3 — Explainable AI:** Integrate SHAP and LIME to generate per-prediction feature attribution explanations for fraud analysts.
+- **Deliverable 3 — RAG Policy Assistant:** Build a Retrieval-Augmented Generation system that retrieves compliance policies and AML regulations to provide context-aware, natural-language explanations for flagged transactions.
+- **Final Deliverable — Deployment:** Deploy the full system as a FastAPI backend with a Streamlit or React frontend for real-time fraud monitoring.
+
+---
+
+## Contributors
+
+- Shahzeb Imran
+- Taha Nawaz
+- Ali Ahmad
+
+---
+
+## Academic Integrity
+
+This project is developed as part of an academic AI course at the **National University of Computer and Emerging Sciences (NUCES), Lahore**. All contributors are expected to fully understand the implementation and be prepared to explain the system during evaluation. AI tools may be used for assistance but not as a substitute for understanding.
+
+---
+
+*Department of Computer Science — NUCES Lahore | Fall 2024*
