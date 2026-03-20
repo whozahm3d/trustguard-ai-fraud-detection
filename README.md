@@ -109,7 +109,8 @@ trustguard-ai-fraud-detection
 │
 ├── reports
 │   ├── Fraud_Detection_Deliverable 1_Report.pdf
-│   └── Fraud_Detection_Deliverable 1_Report.doc
+│  └── Fraud_Detection_Deliverable 1_Report.doc
+
 ```
 
 ---
@@ -183,35 +184,35 @@ jupyter notebook notebooks/exploratory_data_analysis.ipynb
 The EDA uncovered the following key fraud patterns in the PaySim dataset:
 
 ### Transaction Volume Over Time
-![Transaction Volume Over Time](images/transaction_volume_over_time.png)
+![Transaction Volume Over Time](images/deliverable_1_images/transaction_volume_over_time.png)
 > A strong diurnal cycle is visible — transaction volumes peak every ~24 steps. Sudden spikes outside this rhythm may signal abnormal batch activity.
 
 ### Fraud vs. Legitimate Class Distribution
-![Fraud Distribution](images/fraud_distribution/fraud_distribution.png)
+![Fraud Distribution](images/deliverable_1_images/fraud_distribution.png)
 > Only **0.13%** of transactions are fraudulent (8,213 of 6.36M). This severe imbalance means standard accuracy is a misleading metric — AUPRC and F1-score must be used.
 
 ### Transaction Type Distribution
-![Transaction Types](images/transaction_types/transaction_types.png)
+![Transaction Types](images/deliverable_1_images/transaction_types_distribution.png)
 > PAYMENT and CASH_OUT are the most frequent types. However, volume alone does not reflect fraud risk.
 
 ### Fraud Concentration by Transaction Type
-![Fraud by Transaction Type](images/fraud_by_transaction_type/fraud_by_transaction_type.png)
+![Fraud by Transaction Type](images/deliverable_1_images/fraud_by_transaction_type.png)
 > **Fraud occurs exclusively in TRANSFER and CASH_OUT transactions.** This allows a pre-filter that eliminates ~55% of records from fraud modelling with zero loss in recall.
 
 ### Transaction Amount Distribution
-![Transaction Amount Distribution](images/transaction_amount_distribution/transaction_amount_distribution.png)
+![Transaction Amount Distribution](images/deliverable_1_images/transaction_amount_distribution.png)
 > Heavily right-skewed — most transactions are below 500K but a tail extends to ~92M. Feature scaling is essential.
 
 ### Transaction Amount: Fraud vs. Legitimate
-![Fraud vs Normal Amounts](images/transaction_types/fraud_vs_normal_transaction_amounts.png)
+![Fraud vs Normal Amounts](images/deliverable_1_images/fraud_vs_normal_transaction_amounts.png)
 > Fraudulent transactions cluster at higher amounts with a broader spread, confirming large amounts as a key fraud signal.
 
 ### Feature Correlation Matrix
-![Correlation Heatmap](images/correlation_heatmap/correlation_heatmap.png)
+![Correlation Heatmap](images/deliverable_1_images/correlation_heatmap.png)
 > Balance features are strongly inter-correlated. `isFlaggedFraud` shows near-zero correlation with actual fraud — it must be excluded from model features.
 
 ### Feature Importance (Correlation with Fraud Label)
-![Feature Importance](images/transaction_types/feature_importance.png)
+![Feature Importance](images/deliverable_1_images/feature_importance.png)
 > `oldbalanceOrg` and `newbalanceOrig` are the strongest predictors — fraudulent transactions characteristically drain the originating account to zero (the **balance-drain signature**).
 
 ---
