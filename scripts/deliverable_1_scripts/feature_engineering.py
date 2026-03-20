@@ -1,3 +1,5 @@
+# Convert categorical variables into numerical form by using LabelEnoder so they can be used by machine learning models.
+
 def encode_transaction_type(df):
     """
     Convert transaction type into numeric values
