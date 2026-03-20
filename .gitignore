@@ -202,12 +202,14 @@ cython_debug/
 .cursorindexingignore
 
 # Dataset
-data/*.csv
-data/*.zip
+PaySim - Synthetic Financial Dataset for Fraud Detection/*.csv
+PaySim - Synthetic Financial Dataset for Fraud Detection/*.zip
+processed_paysim/*.csv
 
 # Large files
-*.csv
-*.zip
+processed_paysim*.csv
+PaySim - Synthetic Financial Dataset for Fraud Detection*.csv
+PaySim - Synthetic Financial Dataset for Fraud Detection*.zip
 *.tar.gz
 
 # Marimo
