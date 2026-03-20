@@ -1,3 +1,5 @@
+# Load the PaySim dataset containing synthetic financial transaction records used for fraud detection analysis.
+
 def load_dataset(path):
     """
     Load dataset from CSV file
