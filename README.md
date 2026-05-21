@@ -17,11 +17,11 @@
 <!-- Status & License -->
 [![Status](https://img.shields.io/badge/Status-Academic%20Project-blueviolet?style=flat-square)](.)
 [![License](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
-[![CI](https://github.com/whozahm3d/trustguard-ai-fraud-detection/actions/workflows/ci.yml/badge.svg)](https://github.com/whozahm3d/trustguard-ai-fraud-detection/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/whozahm3d/trustguard-ai-fraud-detection/ci.yml?style=flat-square&label=CI&logo=github)](https://github.com/whozahm3d/trustguard-ai-fraud-detection/actions/workflows/ci.yml)
 
 <br>
 
-[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app)
 &nbsp;&nbsp;
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/whozahm3d/trustguard-ai-fraud-detection)
 
@@ -167,7 +167,7 @@ Raw PaySim CSV (6.36M rows)
 ### 🔍 Fraud Detection
 - Trains **4 models** (Logistic Regression, Random Forest, Neural Network, XGBoost) under identical pipeline conditions
 - Two-stage imbalance handling raises training fraud rate from **0.13% → 23.07%** without data leakage
-- 3-fold stratified cross-validation with SMOTE applied strictly inside each fold
+- 5-fold stratified cross-validation with SMOTE applied strictly inside each fold
 - Full ablation study across 7 conditions isolating the contribution of each pipeline component
 
 ### 🧠 Explainable AI
@@ -387,7 +387,7 @@ Retrieval: **Avg Precision@5 = 0.855** · Term Hit Rate = 0.90 · Expected doc f
 
 ## 🖥️ Live Dashboard
 
-**URL:** [https://trustguard-ai-fraud-detection-c7um3xntqvxthahgld5ucm.streamlit.app/](https://trustguard-ai-fraud-detection-c7um3xntqvxthahgld5ucm.streamlit.app/)
+**URL:** [https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app](https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app)
 
 | Page | What it does |
 |:---|:---|
@@ -892,7 +892,7 @@ This project is licensed under the [MIT License](LICENSE). Academic use, learnin
 
 <br>
 
-[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://trustguard-ai-fraud-detection-ddgpfk4kvc87d4bsegcatq.streamlit.app)
 &nbsp;&nbsp;
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/whozahm3d/trustguard-ai-fraud-detection)
 &nbsp;&nbsp;
