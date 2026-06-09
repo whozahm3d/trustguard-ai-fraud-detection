@@ -799,7 +799,7 @@ The dashboard supports CSVs up to **200MB** (configured in `.streamlit/config.to
 
 ## 🎓 Academic Context
 
-This project was developed as the final deliverable for the **Artificial Intelligence** course at:
+This project was developed as part and final deliverable for the Academic **Artificial Intelligence** course at:
 
 > **National University of Computer & Emerging Sciences (FAST-NUCES)**
 > Department of Data Science & Artificial Intelligence — Lahore Campus
