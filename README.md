@@ -21,7 +21,7 @@
 
 <br>
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://ai-fraud-detection-axulmvtaarwsta4kweplbr.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://ai-fraud-detection-rqjdrunbgdqq32dla3kp8z.streamlit.app/)
 &nbsp;&nbsp;
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/whozahm3d/trustguard-ai-fraud-detection)
 
